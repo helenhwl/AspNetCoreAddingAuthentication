@@ -6,16 +6,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using WishList.Models;
+using WishList.Models.AccountViewModels;
 
 namespace WishList.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
-        
+
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-      
+
         public IActionResult Index()
         {
             return View();
@@ -24,7 +25,14 @@ namespace WishList.Controllers
         public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInUser)
         {
             _userManager = userManager;
-            _signInManager = signInUser; 
+            _signInManager = signInUser;
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult Register(RegisterViewModel registerViewModel)
+        {
+            return HomeController.Index();
         }
     }
 }
