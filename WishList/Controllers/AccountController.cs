@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using WishList.Models;
 using WishList.Models.AccountViewModels;
 
@@ -28,11 +24,19 @@ namespace WishList.Controllers
             _signInManager = signInUser;
         }
 
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult HttpGetRegister()
+        {
+            return View();
+        }
+
         [HttpPost]
         [AllowAnonymous]
-        public IActionResult Register(RegisterViewModel registerViewModel)
+        public IActionResult HttpPostRegister(RegisterViewModel register)
         {
-            return HomeController.Index();
+            return View();
         }
     }
 }

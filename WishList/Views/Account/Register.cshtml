@@ -1,5 +1,7 @@
-﻿<h3>Register New User</h3>
-<form asp-action ="Register" >
+﻿using WishList.Models.AccountViewModels.RegisterViewModel
+
+<h3>Register New User</h3>
+<form asp-action="Register">
     <div asp-validation-summary="All" class="text-danger"></div>
     <div>
         <label>asp-for= "Email"</label>
@@ -9,12 +11,12 @@
     <div>
         <label>asp-for="Password" </label>
         <br />
-        <input/>
+        <input />
     </div>
     <div>
         <label>asp-for= "ConfirmPassword"</label>
         <br />
-        <input/>
+        <input />
     </div>
     <div>
         <button type="submit">Register User</button>
